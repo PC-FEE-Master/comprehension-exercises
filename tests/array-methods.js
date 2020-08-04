@@ -25,12 +25,12 @@ describe('should be able to use array methods with primitives', () => {
 describe('should be able to use array methods with objects', () => {
     const arr = [
         {
-            name: 'John Snow',
+            name: 'Jon Snow',
             catchphrase: 'I dont want it.',
             gold: 22
         },
         {
-            name: 'Cescei Lannister',
+            name: 'Cersei Lannister',
             catchphrase: 'I am a bad mofo',
             gold: 55
         },
@@ -47,11 +47,11 @@ describe('should be able to use array methods with objects', () => {
     const whoDoesntWantToBeKing
     const gold
     it('should output the correct values', () => {
-        expect(onlyNames).toEqual(['John Snow', 'Cescei Lannister', 'Night King'])
+        expect(onlyNames).toEqual(['Jon Snow', 'Cescei Lannister', 'Night King'])
         expect(onlyKings).toEqual(['Night King'])
         expect(theRealKing).toEqual('Night King')
         expect(noTalkingRoles).toEqual(['Night King'])
-        expect(whoDoesntWantToBeKing).toEqual('John Snow')
+        expect(whoDoesntWantToBeKing).toEqual('Jon Snow')
         expect(gold).toEqual(100)
     })
 })
