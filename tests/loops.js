@@ -52,3 +52,5 @@ describe('should be able to collect an array and make a object of letter counts'
         expect(o).toEqual({a: 1, b: 1, c: 2})
     })
 })
+
+// TODO: additional looping like for in....
