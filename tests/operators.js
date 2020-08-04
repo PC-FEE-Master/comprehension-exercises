@@ -67,3 +67,14 @@ describe('should give the type of variable', () => {
         expect(num).toEqual('number')
 	})
 })
+
+describe('should be able to convert to boolean values using not', () => {
+	let str = ''
+	let emptyStr
+	let str2 = 'yo'
+	let notEmptyStr
+	it('should have correct types', () => {
+        expect(emptyStr).toEqual(true)
+        expect(notEmptyStr).toEqual(false)
+	})
+})

@@ -1,24 +1,12 @@
 describe('should be able to get values from primitives', () => {
     let str = 'hello'
     let str2 = 'bye'
-    let strCount
-    let str2Count
-    it('should get character count of strings', () => {
-        expect(strCount).toEqual(5)
-        expect(str2Count).toEqual(3)
-    })
+
     let strFirst
     let str2First
     it('it should get first letter of a string', () => {
         expect(strFirst).toEqual('h')
         expect(str2First).toEqual('b')
-    })
-
-    let lastStrIndex
-    let lastStr2Index
-    it('it should get the last index of a string', () => {
-        expect(strLast).toEqual(4)
-        expect(str2Last).toEqual(3)
     })
 
     let strLast
@@ -36,7 +24,28 @@ describe('should be able to get values from primitives', () => {
     })
 })
 
-describe('should be able to look inside objects', () => {
+describe('should be able to transform primitives', () => {
+    let greet = 'hello'
+    let loud = 'HELLO'
+    let greetLoud
+    let greetQuiet
+    let num = 5
+    let numString
+    // NOTE: base backToNum variable based on the result on numString above
+    let backToNum
+    let greetArr = greet.split('')
+    // NOTE: base backToString variable based on the result on greetArr above
+    let backToString
+    it('should be transformed values', () => {
+        expect(greetLoud).toEqual('HELLO')
+        expect(greetQuiet).toEqual('hello')
+        expect(numString).toEqual('5')
+        expect(backToNum).toEqual(5)
+        expect(greetArr).toEqual(['h', 'e', 'l', 'l', 'o'])
+    })
+})
+
+describe('should be able to look inside arrays', () => {
     let arr = [2]
     let arr2 = [1,2,3]
     let containsTwo
