@@ -12,7 +12,7 @@ describe('should be able to get values from primitives', () => {
     let lastStr2Index
     it('it should get the last index of a string', () => {
         expect(lastStrIndex).toEqual(4)
-        expect(lastStr2Index).toEqual(3)
+        expect(lastStr2Index).toEqual(2)
     })
 
     let strLast
