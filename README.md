@@ -16,6 +16,7 @@
 - functions-advanced.js
 - array-methods-functional.js
 - es6.js
+- objects-advanced.js
 
 
 ### high level goal of this....

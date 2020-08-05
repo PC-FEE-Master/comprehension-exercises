@@ -8,15 +8,137 @@
     <script src="node_modules/jasmine-core/lib/jasmine-core/jasmine.js"></script>
     <script src="node_modules/jasmine-core/lib/jasmine-core/jasmine-html.js"></script>
     <script src="node_modules/jasmine-core/lib/jasmine-core/boot.js"></script>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        body {
+            display: flex;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .jasmine-description {
+            padding: .5rem;
+        }
+        
+        #tabs {
+            width: 20%;
+            padding-top: 4rem;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            background: #ddd;
+        }
+
+        #tabs a {
+            text-decoration: none;
+            display: block;
+            color: #666;
+            background: #ddd;
+            padding: .5rem;
+        }
+
+        #tabs a.active {
+            color: #000;
+            border-bottom: 1px solid #000;
+            margin-bottom: .5rem;
+        }
+
+        .jasmine_html-reporter {
+            width: 80%;
+        }
+    </style>
 </head>
 <body>
-    <!-- <script src="./tests/operators.js"></script> -->
-    <!-- <script src="./tests/conditionals.js"></script> -->
-    <!-- <script src="./tests/loops.js"></script> -->
-    <!-- <script src="./tests/functions.js"></script>  -->
-    <!-- <script src="./tests/array-methods.js"></script> -->
-    <!-- <script src="./tests/objects.js"></script> -->
-    <!-- <script src="./tests/objects.js"></script> -->
-    <!-- <script src="main.js"></script> -->
+    <div id="tabs"></div>
+    <!-- <script src="./tests/data-access-primitives.js"></script>
+    <script src="./tests/data-access-non-primitives.js"></script>
+    <script src="./tests/operators.js"></script>
+    <script src="./tests/objects.js"></script>
+    <script src="./tests/objects-advanced.js"></script>
+    <script src="./tests/primitive-methods.js"></script>
+    <script src="./tests/non-primitive-methods.js"></script>
+    <script src="./tests/conditionals.js"></script>
+    <script src="./tests/conditionals-non-primitives.js"></script>
+    <script src="./tests/loops.js"></script>
+    <script src="./tests/functions.js"></script>
+    <script src="./tests/functions-2.js"></script>
+    <script src="./tests/functions-advanced.js"></script>
+    <script src="./tests/array-methods-functional.js"></script>
+    <script src="./tests/es6.js"></script>
+    <script src="./tests/objects-advanced.js"></script> -->
+    <script>
+        /*
+            - data-access-primitives.js
+            - data-access-non-primitives.js
+            - operators.js
+            - objects.js
+            - primitive-methods.js
+            - non-primitive-methods.js
+            - conditionals.js
+            - conditionals-non-primitives.js
+            - loops.js
+            - functions.js
+            - functions-2.js
+            - functions-advanced.js
+            - array-methods-functional.js
+            - es6.js
+            - objects-advanced.js
+        */
+        function singleScript(scriptName, directory) {
+            var s = document.createElement('script')
+            s.type = 'text/javascript'
+            s.src = `./${directory}/${scriptName}.js`
+            document.body.appendChild(s)
+        }
+        const list = [
+            {
+                label: 'data access 1',
+                script: 'data-access-primitives'
+            },
+            {
+                label: 'data access 2',
+                script: 'data-access-non-primitives'
+            },
+            {
+                label: 'operators',
+                script: 'operators'
+            },
+            {
+                label: 'objects',
+                script: 'objects'
+            },
+            {
+                label: 'primitive-methods',
+                script: 'primitive-methods'
+            }
+        ]
+        const getHashOrDefault = () => window.location.hash.slice(1) || list[0].script
+        const currHash = getHashOrDefault()
+        const showSolution = document.location.search === '?solution=true'
+        const directory = showSolution ? 'solutions' : 'tests'
+        singleScript(currHash, directory)
+        document.getElementById('tabs').innerHTML = list.map(item => {
+            const active = currHash === item.script
+            return `
+                <a href="#${item.script}" class="${active ? 'active' : ''}">${item.label}</a>
+            `
+        }).join('')
+        document.getElementById('tabs').addEventListener('click', function (e) {
+            const elHref = e.target.getAttribute('href').slice(1)
+            if (currHash === elHref) {
+                document.location.search = showSolution ? '' : '?solution=true'
+            } else {
+                setTimeout(() => {
+                    document.location.search = ''
+                    window.location.reload()
+                }, 0)
+            }
+
+            // set timeout hack due to waiting for hash to exist
+            
+        })
+    </script>
 </body>
 </html>
