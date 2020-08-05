@@ -41,3 +41,12 @@ if (obj.name == 'Jane') {
     // set a variable to test or something...
 }
 ```
+
+## to get started
+
+```yarn install```
+
+- open index.html in browser
+
+### tests hold exercises
+### solutions hold the answers

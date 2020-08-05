@@ -1,1 +1,4 @@
+- go back to all but specifically....
+
 - go back to primitive methods (Number)
+- non-primitive-methods needs more
