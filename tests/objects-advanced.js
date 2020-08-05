@@ -29,7 +29,8 @@ describe('create a function doesKeyExist which takes the state and determines if
 describe('create a function copyAndAdd which takes an object and returns a copy of it with another key and value', () => {
     const obj = {test: true}
     const copyAndAdd = (o, key, value) => {}
-    expect(copyAndAdd(obj, 'foo', 22)).toEqual()
+    expect(copyAndAdd(obj, 'foo', 22)).toEqual({test: true, foo: 22})
+    expect(copyAndAdd(obj, 'bar', true)).toEqual({test: true, bar: true})
 })
 
 // add a todo to this state (via mutation)
@@ -261,7 +262,7 @@ describe('create a function incrementOrDecrement which increases the of the prod
             ]
         }
 
-        const exprectedDecrementState = {...expectedIncrementState, products: [{id: 1, quantity: 2}, {id: 2, quantity: 2}]}
+        const expectedDecrementState = {...expectedIncrementState, products: [{id: 1, quantity: 2}, {id: 2, quantity: 2}]}
 
         expect(incrementOrDecrement(stateCopy, 2, true)).toEqual(expectedIncrementState)
         expect(incrementOrDecrement(stateCopy, 2, false)).toEqual(expectedDecrementState)
