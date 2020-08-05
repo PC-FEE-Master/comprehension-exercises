@@ -2,7 +2,8 @@
 
 ### the progression for these exercises is as follows (in line with curriculum)
 
-- data-access.js
+- data-access-primitives.js
+- data-access-non-primitives.js
 - operators.js
 - objects.js
 - primitive-methods.js
