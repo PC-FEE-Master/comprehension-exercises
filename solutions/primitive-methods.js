@@ -6,6 +6,8 @@ describe('should be able to get values from primitives', () => {
     let str2First = str2.charAt(0)
     it('it should get first letter of a string', () => {
         expect(strFirst).toEqual('h')
+    })
+    it('it should get first letter of a string', () => {
         expect(str2First).toEqual('b')
     })
 
@@ -20,6 +22,8 @@ describe('should be able to get values from primitives', () => {
     let str2IncludesX = str2.includes('x')
     it('it should see if string includes a character', () => {
         expect(strIncludesH).toEqual(true)
+    })
+    it('it should see if string includes a character', () => {
         expect(str2IncludesX).toEqual(false)
     })
 })
@@ -38,9 +42,17 @@ describe('should be able to transform primitives', () => {
     let backToString = greetArr.join('')
     it('should be transformed values', () => {
         expect(greetLoud).toEqual('HELLO')
+    })
+    it('should be transformed values', () => {
         expect(greetQuiet).toEqual('hello')
+    })
+    it('should be transformed values', () => {
         expect(numString).toEqual('5')
+    })
+    it('should be transformed values', () => {
         expect(backToNum).toEqual(5)
+    })
+    it('should be transformed values', () => {
         expect(greetArr).toEqual(['h', 'e', 'l', 'l', 'o'])
     })
 })
