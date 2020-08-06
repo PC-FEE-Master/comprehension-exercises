@@ -1,23 +1,9 @@
 ## This repo is a a good test of comprehension of basic syntax and more advanced concepts
 
-### the progression for these exercises is as follows (in line with curriculum)
-
-- data-access-primitives.js
-- data-access-non-primitives.js
-- operators.js
-- objects.js
-- primitive-methods.js
-- non-primitive-methods.js
-- conditionals.js
-- conditionals-non-primitives.js
-- loops.js
-- functions.js
-- functions-2.js
-- functions-advanced.js
-- array-methods-functional.js
-- es6.js
-- objects-advanced.js
-
+#### tests hold exercises
+#### solutions hold the answers
+#### rubric holds requirements for students
+#### additional reading is hand-selected reading material for concepts
 
 ### high level goal of this....
 
@@ -42,14 +28,26 @@ if (obj.name == 'Jane') {
 }
 ```
 
+### the progression for these exercises is as follows (in line with curriculum)
+
+- data-access-primitives.js
+- data-access-non-primitives.js
+- operators.js
+- objects.js
+- primitive-methods.js
+- non-primitive-methods.js
+- conditionals.js
+- conditionals-non-primitives.js
+- loops.js
+- functions.js
+- functions-2.js
+- functions-advanced.js
+- array-methods-functional.js
+- es6.js
+- objects-advanced.js
+
 ## to get started
 
 ```yarn install```
 
 - open index.html in browser
-
-### tests hold exercises
-### solutions hold the answers
-
-### rubric holds requirements for students
-### additional reading is hand-selected reading material for concepts
