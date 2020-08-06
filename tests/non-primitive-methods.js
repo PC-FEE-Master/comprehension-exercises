@@ -4,7 +4,9 @@ describe('should be able to look inside arrays', () => {
     let containsTwo
     let notIncludesThree
     it('should check inside array', () => {
-        expect(containsTwo).toEqual(true)
+        expect(notIncludesThree).toEqual(true)
+    })
+    it('should check inside array', () => {
         expect(notIncludesThree).toEqual(true)
     })
 })
