@@ -50,3 +50,6 @@ if (obj.name == 'Jane') {
 
 ### tests hold exercises
 ### solutions hold the answers
+
+### rubric holds requirements for students
+### additional reading is hand-selected reading material for concepts
