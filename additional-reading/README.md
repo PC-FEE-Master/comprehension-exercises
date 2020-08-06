@@ -59,7 +59,7 @@ https://javascript.info/dom-nodes
 https://javascript.info/searching-elements-dom
 https://javascript.info/styles-and-classes
 
-## browser events (TODO)
+## browser events
 https://javascript.info/bubbling-and-capturing
 https://javascript.info/event-delegation
 https://javascript.info/default-browser-action
