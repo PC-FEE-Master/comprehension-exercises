@@ -2,3 +2,4 @@
 
 - go back to primitive methods (Number)
 - non-primitive-methods needs more
+- es6 exercises
