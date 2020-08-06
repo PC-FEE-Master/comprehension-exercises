@@ -4,8 +4,10 @@ describe('should be able to add properties to an object', () => {
     o.name = 'Batman'
     o['age'] = 42
     // add age using bracket notation
-    it('should give the correct object', () => {
+    it('o name should be Batman', () => {
         expect(o.name).toEqual('Batman')
+    })
+    it('o age should be 42', () => {
         expect(o.age).toEqual(42)
     })
 })
@@ -28,8 +30,10 @@ describe('should be able to modify properties from an object', () => {
     }
     o.age = 23
     o.weight = 129
-    it('should give the correct object', () => {
+    it('o age should be 23', () => {
         expect(o.age).toEqual(23)
+    })
+    it('o weight should be 129', () => {
         expect(o.weight).toEqual(129)
     })
 })
