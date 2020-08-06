@@ -45,6 +45,7 @@ if (obj.name == 'Jane') {
 - array-methods-functional.js
 - es6.js
 - objects-advanced.js
+- problems.js
 
 ## to get started
 
