@@ -41,12 +41,22 @@ describe('compare values', () => {
 	let four = '4'
 	// using four variable set kindaFour to be true
 	let kindaFour = four == 4
-	it('should equal these values', () => {
+	it('fullPizza should be true', () => {
 		expect(fullPizza).toEqual(true)	
+	})
+	it('completePizza should be false', () => {
 		expect(completePizza).toEqual(false)
+	})
+	it('enoughPizza should be false', () => {
 		expect(enoughPizza).toEqual(true)
+	})
+	it('numNotFive should be false', () => {
 		expect(numNotFive).toEqual(true)
+	})
+	it('numIsFour should be true', () => {
 		expect(numIsFour).toEqual(true)
+	})
+	it('kindaFour should be true', () => {
 		expect(kindaFour).toEqual(true)
 	})
 })
@@ -64,9 +74,13 @@ describe('should give the type of variable', () => {
     let greet = typeof 'Hello'
     let obj = typeof {}
     let num = typeof 5
-	it('should have correct types', () => {
+	it('greet should be string', () => {
         expect(greet).toEqual('string')
+	})
+	it('obj should be object', () => {
         expect(obj).toEqual('object')
+	})
+	it('num should be number', () => {
         expect(num).toEqual('number')
 	})
 })
@@ -76,8 +90,10 @@ describe('should be able to convert to boolean values using not', () => {
 	let emptyStr = !str
 	let str2 = 'yo'
 	let notEmptyStr = !str2
-	it('should have correct types', () => {
+	it('emptyStr should be true', () => {
         expect(emptyStr).toEqual(true)
+	})
+	it('notEmptyStr should be true', () => {
         expect(notEmptyStr).toEqual(false)
 	})
 })
