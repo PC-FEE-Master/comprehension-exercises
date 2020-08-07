@@ -21,7 +21,7 @@ const newState = {
 // create a function which tells me if a key exists in the state
 describe('doesKeyExist', () => {
     const stateCopy = {...newState, todos: [...newState.todos]}
-    const doesKeyExist = () => {}
+    const doesKeyExist = (state, key) => state.hasOwnProperty(key)
     it('should see key exists', () => {
         expect(doesKeyExist(stateCopy, 'todos')).toEqual(true)
         expect(doesKeyExist(stateCopy, 'foo')).toEqual(false)
@@ -30,7 +30,7 @@ describe('doesKeyExist', () => {
 // create a function which copies an object and returns a copy of it with another key and value
 describe('copyAndAdd', () => {
     const obj = {test: true}
-    const copyAndAdd = () => {}
+    const copyAndAdd = (o, key, value) => ({...o, [key]: value})
     it('should copy and add', () => {
         expect(copyAndAdd(obj, 'foo', 22)).toEqual({test: true, foo: 22})
         expect(copyAndAdd(obj, 'bar', true)).toEqual({test: true, bar: true})
@@ -45,6 +45,7 @@ describe('addViaMutation', () => {
         text: 'todo 2',
         status: 'active'
     }
+    stateCopy.todos.push(todo)
     it('should give the correct object', () => {
         expect(stateCopy.todos).toEqual([
             {
@@ -69,6 +70,7 @@ describe('should be able to add todos via cloning', () => {
         text: 'todo 2',
         status: 'active'
     }
+    stateCopy = {...stateCopy, todos: [...stateCopy.todos, todo]}
     it('should give the correct array', () => {
         expect(stateCopy.todos).toEqual([
             {
@@ -88,7 +90,7 @@ describe('should be able to add todos via cloning', () => {
 // give me the count of todos which have a status of active
 describe('should give me the count of todos which have a status of active', () => {
     const stateCopy = {...newState, todos: [...newState.todos]}
-    const totalCount = null
+    const totalCount = stateCopy.todos.filter(todo => todo.status === 'active').length
     it('should give the correct count', () => {
         expect(totalCount).toEqual(1)
     })
@@ -97,7 +99,12 @@ describe('should give me the count of todos which have a status of active', () =
 // create a function which toggles the todo status given the state and id of the todo
 describe('create a function which toggles the todo status (either active or inactive) given the state and id of the todo', () => {
     const stateCopy = {...newState, todos: [...newState.todos]}
-    const toggleTodoStatus = () => {}
+    const toggleTodoStatus = (state, id) => ({...state, todos: state.todos.map(item => {
+        if (item.id === id) {
+            return {...item, status: item.status == 'active' ? 'inactive' : 'active'}
+        }
+        return item
+    })})
     it('should give the correct new state', () => {
         const expectedState = {
             todos: [
@@ -126,7 +133,7 @@ describe('create a function which toggles the todo status (either active or inac
 // create a function which takes the state, id, key, and value which will update a todo
 describe('create a function modifyTodo which takes the state, id, key, and value which will update a todo', () => {
     const stateCopy = {...newState, todos: [...newState.todos]}
-    const modifyTodo = () => {}
+    const modifyTodo = (state, id, key, value) => ({...state, todos: state.todos.map(x => (x.id === id ? {...x, [key]: value} : item))})
     it('should give the correct new state w/ todo updated', () => {
         const expectedState = {
             todos: [
@@ -155,7 +162,7 @@ describe('create a function modifyTodo which takes the state, id, key, and value
 // create a function which takes the state and id and gives the state back without that todo
 describe('create a function filterTodo which takes the state and id and gives the state back without that todo', () => {
     const stateCopy = {...newState, todos: [...newState.todos, {id: 2, text: 'todo 2', status: 'active'}]}
-    const filterTodo = () => {}
+    const filterTodo = (state, id) => ({...state, todos: state.todos.filter(x => x.id !== id)})
     it('should give the correct new state w/ todo updated', () => {
         const expectedState = {
             todos: [
@@ -183,7 +190,10 @@ describe('create a function filterTodo which takes the state and id and gives th
 // create a function which increments the quantity of the product given an id (returning a copy of the entire product state)
 describe('create a function increaseQuantity which increases the  of the product given an id (returning a copy of the entire product state)', () => {
     const stateCopy = {...newState, todos: [...newState.todos]}
-    const increaseQuantity = () => {}
+    const increaseQuantity = (state, id) => ({
+        ...state,
+        products: state.products.map(x => (x.id == id ? {...x, quantity: x.quantity + 1} : x))
+    })
     it('should give the correct new state w/ product quantity increased', () => {
         const expectedState = {
             todos: [
@@ -212,7 +222,10 @@ describe('create a function increaseQuantity which increases the  of the product
 // create a function which decrements the quantity of the product given an id (returning a copy of the entire product state)
 describe('create a function decreaseQuantity which increases the  of the product given an id (returning a copy of the entire product state)', () => {
     const stateCopy = {...newState, todos: [...newState.todos]}
-    const decreaseQuantity = () => {}
+    const decreaseQuantity = (state, id) => ({
+        ...state,
+        products: state.products.map(x => (x.id == id ? {...x, quantity: x.quantity - 1} : x))
+    })
     it('should give the correct new state w/ product decreased', () => {
         const expectedState = {
             todos: [
@@ -242,7 +255,10 @@ describe('create a function decreaseQuantity which increases the  of the product
 // and a boolean value (true means increment, false means decrement)
 describe('create a function incrementOrDecrement which increases the of the product given an id (returning a copy of the entire product state)', () => {
     const stateCopy = {...newState, todos: [...newState.todos]}
-    const incrementOrDecrement = () => {}
+    const incrementOrDecrement = (state, id, increment) => ({
+        ...state,
+        products: state.products.map(x => (x.id == id ? {...x, quantity: increment ? x.quantity + 1 : x.quantity - 1} : x))
+    })
     it('should give the correct new state w/ product incremented or decremented', () => {
         const expectedIncrementState = {
             todos: [
