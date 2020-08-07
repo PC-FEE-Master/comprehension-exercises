@@ -1,6 +1,14 @@
 /*
+    // uppercase a name
     // fizzbuzz
 */
+
+describe('uppercase a name', () => {
+    function nameCase(name) {}
+    it('should be a John Smith', () => {
+        expect(nameCase('john smith')).toEqual('John Smith')
+    })
+})
 
 describe('fizzbuzz into array', () => {
     let fizzbuzz = []

@@ -2,6 +2,17 @@
     // fizzbuzz
 */
 
+describe('uppercase a name', () => {
+    function nameCase(name) {
+        const nameArr = name.split(' ')
+        const [first, last] = nameArr
+        return first.slice(0, 1).toUpperCase() + first.slice(1) + ' ' + last.slice(0, 1).toUpperCase() + last.slice(1)
+    }
+    it('should be a John Smith', () => {
+        expect(nameCase('john smith')).toEqual('John Smith')
+    })
+})
+
 describe('fizzbuzz into array', () => {
     let fizzbuzz = []
     for (let i = 1; i <= 100; i++) {
