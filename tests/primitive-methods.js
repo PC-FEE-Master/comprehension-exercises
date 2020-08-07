@@ -39,22 +39,25 @@ describe('should be able to transform primitives', () => {
     let numString
     // NOTE: base backToNum variable based on the result on numString above
     let backToNum
-    let greetArr = greet.split('')
+    let greetArr
     // NOTE: base backToString variable based on the result on greetArr above
     let backToString
-    it('should be transformed values', () => {
+    it('should be HELLO', () => {
         expect(greetLoud).toEqual('HELLO')
     })
-    it('should be transformed values', () => {
+    it('should be hello', () => {
         expect(greetQuiet).toEqual('hello')
     })
-    it('should be transformed values', () => {
+    it('should be 5', () => {
         expect(numString).toEqual('5')
     })
-    it('should be transformed values', () => {
+    it('should be 5', () => {
         expect(backToNum).toEqual(5)
     })
-    it('should be transformed values', () => {
+    it('should be array', () => {
         expect(greetArr).toEqual(['h', 'e', 'l', 'l', 'o'])
+    })
+    it('should be string', () => {
+        expect(backToString).toEqual('hello')
     })
 })

@@ -15,6 +15,8 @@ describe('should be able to get values from primitives', () => {
     let str2Last = str2.charAt(str2.length - 1)
     it('it should get the last letter of a string', () => {
         expect(strLast).toEqual('o')
+    })
+    it('it should get the last letter of a string', () => {
         expect(str2Last).toEqual('e')
     })
 
@@ -40,19 +42,22 @@ describe('should be able to transform primitives', () => {
     let greetArr = greet.split('')
     // NOTE: base backToString variable based on the result on greetArr above
     let backToString = greetArr.join('')
-    it('should be transformed values', () => {
+    it('should be HELLO', () => {
         expect(greetLoud).toEqual('HELLO')
     })
-    it('should be transformed values', () => {
+    it('should be hello', () => {
         expect(greetQuiet).toEqual('hello')
     })
-    it('should be transformed values', () => {
+    it('should be 5', () => {
         expect(numString).toEqual('5')
     })
-    it('should be transformed values', () => {
+    it('should be 5', () => {
         expect(backToNum).toEqual(5)
     })
-    it('should be transformed values', () => {
+    it('should be array', () => {
         expect(greetArr).toEqual(['h', 'e', 'l', 'l', 'o'])
+    })
+    it('should be string', () => {
+        expect(backToString).toEqual('hello')
     })
 })
