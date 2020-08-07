@@ -16,6 +16,8 @@ describe('should be able to sum numbers', () => {
     // for loop starting at 1 and adding every number up to 5 (1 + 2 + 3 + 4 + 5) // 15
     it('should sum numbers from different values', () => {
         expect(count).toEqual(6)
+    })
+    it('should sum numbers from different values', () => {
         expect(addAllNumbersUpTo5).toEqual(15)
     })
 })

@@ -14,12 +14,24 @@ describe('should be able to use array methods with primitives', () => {
     const multiplied = arr.map(item => item * 2)
     it('should have seven on arr', () => {
         expect(arr).toEqual([1,2,3,4,5,6,7])
+    })
+    it('length should be 7', () => {
         expect(arr.length).toEqual(7)
+    })
+    it('containsTwo is true', () => {
         expect(containsTwo).toEqual(true)
+    })
+    it('doesntContainSeven is false', () => {
         expect(doesntContainSeven).toEqual(false)
-        expect(aboveThree).toEqual([4,5,6])
+    })
+    it('aboveThree', () => {
+        expect(aboveThree).toEqual([4,5,6, 7])
+    })
+    it('two', () => {
         expect(two).toEqual(2)
-        expect(multiplied).toEqual([2,4,6,8,10,12])
+    })
+    it('multiplied', () => {
+        expect(multiplied).toEqual([2,4,6,8,10,12,14])
     })
 })
 
@@ -41,18 +53,29 @@ describe('should be able to use array methods with objects', () => {
             gold: 23
         }
     ]
-    const onlyNames = null
-    const onlyKings = null
-    const theRealKing = null
-    const noTalkingRoles = null
-    const whoDoesntWantToBeKing = null
-    const gold = null
+    const onlyNames = arr.map(x => x.name)
+    const onlyKings = arr.filter(item => item.name.includes('King')).map(x => x.name)
+    const theRealKing = arr.find(item => item.name === 'Night King').name
+    const noTalkingRoles = arr.find(item => !item.catchphrase).name
+    // use jons catchphrase
+    const whoDoesntWantToBeKing = arr.find(item => item.catchphrase === 'I dont want it.').name
+    const gold = arr.reduce((a, b) => a + b.gold, 0)
     it('should output the correct values', () => {
-        expect(onlyNames).toEqual(['Jon Snow', 'Cescei Lannister', 'Night King'])
+        expect(onlyNames).toEqual(['Jon Snow', 'Cersei Lannister', 'Night King'])
+    })
+    it('should output the correct values', () => {
         expect(onlyKings).toEqual(['Night King'])
+    })
+    it('should output the correct values', () => {
         expect(theRealKing).toEqual('Night King')
-        expect(noTalkingRoles).toEqual(['Night King'])
+    })
+    it('should output the correct values', () => {
+        expect(noTalkingRoles).toEqual('Night King')
+    })
+    it('should output the correct values', () => {
         expect(whoDoesntWantToBeKing).toEqual('Jon Snow')
+    })
+    it('should output the correct values', () => {
         expect(gold).toEqual(100)
     })
 
@@ -88,7 +111,7 @@ describe('should be able to use array methods with objects', () => {
     ]
     
     // find the user with id of 2
-    const user2 = null
+    const user2 = users.find(item => item.id === 2)
     it('should find user 2', () => {
         expect(user2).toEqual({
             id: 2,
@@ -99,7 +122,7 @@ describe('should be able to use array methods with objects', () => {
         })
     })
     // find the user with the first name of Morty
-    const morty = null
+    const morty = users.find(item => item.first === 'Morty')
     it('should find morty', () => {
         expect(morty).toEqual({
             id: 4,
@@ -109,7 +132,7 @@ describe('should be able to use array methods with objects', () => {
             status: 'active'
         })
     })
-    const marks = null
+    const marks = users.filter(x => x.first === 'mark')
     it('should find all marks', () => {
         expect(marks).toEqual(
             [

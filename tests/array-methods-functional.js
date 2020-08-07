@@ -13,12 +13,24 @@ describe('should be able to use array methods with primitives', () => {
     const multiplied = null
     it('should have seven on arr', () => {
         expect(arr).toEqual([1,2,3,4,5,6,7])
+    })
+    it('length should be 7', () => {
         expect(arr.length).toEqual(7)
+    })
+    it('containsTwo is true', () => {
         expect(containsTwo).toEqual(true)
+    })
+    it('doesntContainSeven is false', () => {
         expect(doesntContainSeven).toEqual(false)
+    })
+    it('aboveThree', () => {
         expect(aboveThree).toEqual([4,5,6])
+    })
+    it('two', () => {
         expect(two).toEqual(2)
-        expect(multiplied).toEqual([2,4,6,8,10,12])
+    })
+    it('multiplied', () => {
+        expect(multiplied).toEqual([2,4,6,8,10,12,14])
     })
 })
 
@@ -44,14 +56,25 @@ describe('should be able to use array methods with objects', () => {
     const onlyKings = null
     const theRealKing = null
     const noTalkingRoles = null
+    // use jons catchphrase
     const whoDoesntWantToBeKing = null
     const gold = null
     it('should output the correct values', () => {
-        expect(onlyNames).toEqual(['Jon Snow', 'Cescei Lannister', 'Night King'])
+        expect(onlyNames).toEqual(['Jon Snow', 'Cersei Lannister', 'Night King'])
+    })
+    it('should output the correct values', () => {
         expect(onlyKings).toEqual(['Night King'])
+    })
+    it('should output the correct values', () => {
         expect(theRealKing).toEqual('Night King')
-        expect(noTalkingRoles).toEqual(['Night King'])
+    })
+    it('should output the correct values', () => {
+        expect(noTalkingRoles).toEqual('Night King')
+    })
+    it('should output the correct values', () => {
         expect(whoDoesntWantToBeKing).toEqual('Jon Snow')
+    })
+    it('should output the correct values', () => {
         expect(gold).toEqual(100)
     })
 
